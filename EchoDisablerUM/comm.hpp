@@ -50,7 +50,7 @@ namespace Comm {
 		Command c = {};
 		c.action = HEARTBEAT;
 		c.param1 = getRL64();
-		bool b = (makeCall((ULONG64)&c) == 0xb00b && c.param2 == 1 && c.param3 == c.param1);
+		bool b = (makeCall((ULONG64)&c) == 0x12345 && c.param2 == 1 && c.param3 == c.param1);
 		RtlSecureZeroMemory(&c, sizeof(c));
 		return b;
 	}
@@ -60,7 +60,7 @@ namespace Comm {
 		c.action = NTFS_FILTER_ADD;
 		c.param1 = len;
 		c.param2 = (ULONG64) data;
-		bool b = (makeCall((ULONG64)&c) == 0xb00b && c.param3 == 1);
+		bool b = (makeCall((ULONG64)&c) == 0x12345 && c.param3 == 1);
 		RtlSecureZeroMemory(&c,sizeof(c));
 		return b;
 	}
@@ -70,7 +70,7 @@ namespace Comm {
 		c.action = NTFS_FILTER_REMOVE;
 		c.param1 = len;
 		c.param2 = (ULONG64)data;
-		bool b = (makeCall((ULONG64)&c) == 0xb00b && c.param3 == 1);
+		bool b = (makeCall((ULONG64)&c) == 0x12345 && c.param3 == 1);
 		RtlSecureZeroMemory(&c, sizeof(c));
 		return b;
 	}
@@ -80,7 +80,7 @@ namespace Comm {
 		c.action = CSRSS_STRING_REMOVE;
 		c.param1 = len;
 		c.param2 = (ULONG64)data;
-		bool b = (makeCall((ULONG64)&c) == 0xb00b && c.param3 == 1);
+		bool b = (makeCall((ULONG64)&c) == 0x12345 && c.param3 == 1);
 		RtlSecureZeroMemory(&c, sizeof(c));
 		return b;
 	}
